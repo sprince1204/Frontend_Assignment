@@ -175,11 +175,11 @@ const Home = () => {
   };
 
   return (
-    <div
-      style={boxStyle}
-    >
+  <div style={boxStyle}>
+    {!isDataLoaded ? (
+      <p>Loading...</p>  // Display a loading message or spinner
+    ) : (
       <MainContainer container>
-
         {selectedOptions.grouping === "status" ? (
           <TicketGroupStatus
             data={data}
@@ -215,8 +215,10 @@ const Home = () => {
           />
         ) : null}
       </MainContainer>
-    </div>
-  );
+    )}
+  </div>
+);
+
 };
 
 export default Home;
